@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Hanieh!</title>
+    <link href="https://cdn.fontcdn.ir/Font/Persian/Vazirmatn/Vazirmatn.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #ffd8d8, #ffd1ff, #d1eaff);
+            font-family: 'Vazirmatn', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 8rem;
+            color: #2a992a;
+            -webkit-text-stroke: 1px white;
+            text-shadow: 0 0 20px rgba(29, 177, 0, 0.7);
+            animation: colorFlow 3s infinite;
+            margin: 0;
+        }
+
+        .dates {
+            font-size: 1.8rem;
+            color: #000000;
+            margin: 20px 0;
+            line-height: 1.8;
+            -webkit-text-stroke: 1px white;
+        }
+
+        .shamsi {
+            color: #ff6b6b;
+            font-size:48px;
+        }
+
+        .miladi {
+            color: #4facfe;
+            font-size:48px;
+        }
+
+        .message {
+            font-size: 1.8rem;
+            color: rgb(184, 0, 0);
+            margin-bottom: 30px;
+            -webkit-text-stroke: 0.25px rgb(184, 0, 0);
+            animation: fadeIn 2s;
+        }
+
+        button {
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(45deg, #ff6b6b, #f77a52, #ff8c42);
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        @keyframes colorFlow {
+            0% { color: #ff6b6b; }
+            50% { color: #f77a52; }
+            100% { color: #ff8c42; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti" id="confetti"></div>
+    <div class="container">
+        <h1>Happy Birthday Tanin!</h1>
+        <div class="dates">
+            <span class="shamsi">26 شهریور</span><br>
+            <span class="miladi">17 September</span>
+        </div>
+        <div class="message">همیشه شاد و پرانرژی باشی</div>
+        <button onclick="playMusic()">پخش موزیک جشن 🎶</button> 
+    </div>
+
+    <script>
+        // Music Player with Auto-play
+        const audio = new Audio('https://musictaj.musicmellnet.com/song403/bhr/Andy%20-%20Tavalod.mp3');
+        
+        // Try to auto-play
+        document.addEventListener('DOMContentLoaded', () => {
+            audio.play().catch(error => {
+                console.log("Auto-play blocked, user needs to interact first");
+                document.querySelector('button').style.display = 'block';
+            });
+        });
+
+        function playMusic() {
+            audio.play();
+        }
+
+        // Confetti Effect
+        const confettiSettings = { 
+            target: 'confetti',
+            max: 300,
+            size: 2,
+            animate: true,
+            props: ['circle', 'square', 'triangle', 'star', 'heart'],
+            colors: [[255, 107, 107], [255, 165, 0], [255, 215, 0], [79, 172, 254]],
+            clock: 40,
+            rotate: true
+        };
+        const confetti = new ConfettiGenerator(confettiSettings);
+        confetti.render();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.8/dist/index.min.js"></script>
+</body>
+</html>
